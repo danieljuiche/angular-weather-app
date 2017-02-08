@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-us" ng-app="weatherApp">
 <head>
 	<title>Weather Application</title>
 	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
@@ -13,12 +13,12 @@
 
 	<!-- Load AngularJS CDN -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-
 	<!-- Load AngularJS routing service -->
 	<script src="https://code.angularjs.org/1.6.1/angular-route.min.js"></script>
 	<!-- Load AngularJS resource service -->
 	<script src="https://code.angularjs.org/1.6.1/angular-resource.min.js"></script>
-
+	<!-- Main application -->
+	<script src="js/app.js"></script>
 </head>
 <body>
 	<header>
@@ -32,6 +32,8 @@
 			</div>
 		</nav>
 	</header>
-
+	<div class="container">
+	<div ng-view></div>
+	</div>
 </body>
 </html>
