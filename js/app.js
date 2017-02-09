@@ -11,7 +11,7 @@ weatherApp.config(function ($routeProvider) {
 	.when('/forecast', {
 		templateUrl: 'pages/forecast.html',
 	 	controller: 'forecastController' 
-	});
+	})
 });
 
 
@@ -24,7 +24,7 @@ weatherApp.controller('homeController', ['$scope', 'cityNameService', function (
 	$scope.city = '';
 	$scope.$watch('city', function (newVal, oldVal) {
 		$scope.city = newVal;
-		cityNameService.name = $scope.city;
+		cityNameService.city = $scope.city;
 	})
 
 
