@@ -10,7 +10,7 @@ weatherApp.config(function ($routeProvider, $sceDelegateProvider) {
 	})
 	.when('/forecast', {
 		templateUrl: 'pages/forecast.html',
-	 	controller: 'forecastController' 
+	 	controller: 'forecastController'
 	});
 
 	// Whitelist
