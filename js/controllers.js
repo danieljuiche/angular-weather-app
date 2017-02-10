@@ -15,16 +15,13 @@ weatherApp.controller('homeController', ['$scope', '$location', 'cityNameService
 
 }]);
 
-weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityNameService', function ($scope, $resource, $routeParams, cityNameService) {
+weatherApp.controller('forecastController', ['$scope', '$routeParams', 'weatherService', 'cityNameService', function ($scope, $routeParams, weatherService, cityNameService) {
 	
 	// Store initial variables
 	$scope.city = cityNameService.city;
 	$scope.daysToDisplay = $routeParams.days || '3';
 
-	// Get data from OpenWeatherMap API
-	$scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=9f7c06d0eb23c68b0fc17fec2280429b", { get: { method: "JSONP" }});
-	$scope.weatherResult = $scope.weatherAPI.get({ q: $scope.city, cnt: $scope.daysToDisplay });
-
+	$scope.weatherResult = weatherService.GetWeather($scope.city,$scope.daysToDisplay);
 
 	// Function to convert temperature from Kelvin to Celcius
 	$scope.convertToCelcius = function (degK) {
