@@ -66,9 +66,18 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
 
 }]);
 
+
+// Directives
 weatherApp.directive("searchResult", function () {
 	return {
-		template: '<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">{{ convertToDate(w.dt) | date : "MMM d, yyyy" }}</h3></div><div class="panel-body"><h3>Daytime temperature: {{ convertToCelcius(w.temp.day) }} &deg;C</h3></div></div>',
-		replace: true
+		restrict: 'E',
+		templateUrl: 'directives/weatherResult.html',
+		replace: true,
+		scope: {
+			weatherDay: "=",
+			convertToStandard: "&",
+			convertToDate: "&",
+			dateFormat: "@"
+		}
 	}
 });
