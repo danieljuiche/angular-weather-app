@@ -1,3 +1,7 @@
+<p>
+	<a href="#!/">Back to search</a>
+</p>
+
 Forecast {{ city }}
 
 <hr />
@@ -6,14 +10,16 @@ Days: <a href="#!/forecast/3" ng-class="{'bg-primary': daysToDisplay === '3'}">3
 <div ng-repeat="w in weatherResult.list">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="panel panel-default">
+			<!-- Search results custom directive -->
+<!-- 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">{{ convertToDate(w.dt) | date : 'MMM d, yyyy' }}</h3>
 				</div>
 				<div class="panel-body">
 					<h3>Daytime temperature: {{ convertToCelcius(w.temp.day) }} &deg;C</h3>
 				</div>
-			</div>
+			</div> -->
+			<search-result></search-result>
 		</div>
 	</div>
 </div>

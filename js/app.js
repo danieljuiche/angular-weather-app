@@ -44,7 +44,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
 	
 	// Store initial variables
 	$scope.city = cityNameService.city;
-	$scope.daysToDisplay = $routeParams.days || 3;
+	$scope.daysToDisplay = $routeParams.days || '3';
 
 	// Get data from OpenWeatherMap API
 	$scope.weatherAPI = $resource("http://api.openweathermap.org/data/2.5/forecast/daily?APPID=9f7c06d0eb23c68b0fc17fec2280429b", { get: { method: "JSONP" }});
@@ -65,3 +65,10 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParam
 	console.log($scope.weatherResult);
 
 }]);
+
+weatherApp.directive("searchResult", function () {
+	return {
+		template: '<div class="panel panel-default"><div class="panel-heading"><h3 class="panel-title">{{ convertToDate(w.dt) | date : "MMM d, yyyy" }}</h3></div><div class="panel-body"><h3>Daytime temperature: {{ convertToCelcius(w.temp.day) }} &deg;C</h3></div></div>',
+		replace: true
+	}
+});
