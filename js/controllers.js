@@ -1,4 +1,20 @@
 // Controllers
+weatherApp.controller('homeController', ['$scope', '$location', 'cityNameService', function ($scope, $location, cityNameService) {
+	
+	$scope.city = cityNameService.city;
+
+	$scope.$watch('city', function () {
+
+		cityNameService.city = $scope.city;
+
+	});
+
+	$scope.submit = function () {
+		$location.path("/forecast");
+	}
+
+}]);
+
 weatherApp.controller('forecastController', ['$scope', '$resource', '$routeParams', 'cityNameService', function ($scope, $resource, $routeParams, cityNameService) {
 	
 	// Store initial variables
